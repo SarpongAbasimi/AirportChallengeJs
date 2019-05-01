@@ -7,9 +7,18 @@ describe('Weather',function(){
     weather = new Weather()
   });
 
+  describe('stormyWeather', function(){
+    it('gives a random number', function(){
+      spyOn(Math,'random').and.returnValue(0.4);
+      expect(weather.stormyWeather()).toBe(5);
+    });
+  });
+
   describe('isStormy', function(){
-    it('It returns a random weather', function(){
-      expect(weather.isStormy()).toEqual(4)
+    it('gives a message if its stormy', function(){
+      let goodMessage = 'You can land anytime because the weather is great.'
+      spyOn(Math,'random').and.returnValue(0.4);
+      expect(weather.isStormy()).toBe(goodMessage);
     });
   });
 });
