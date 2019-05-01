@@ -6,7 +6,7 @@ describe('FeaturTest', function(){
   let airport, plane, weather;
   beforeEach(function(){
     weather = new Weather();
-    airport = new Airport(weather);
+    airport = new Airport(weather, 10);
     plane = new Plane();
   });
 

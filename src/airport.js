@@ -1,6 +1,7 @@
-function Airport(weather){
+function Airport(weather, capacity = 10){
   this.planeLandingArea = [];
-  this.weather = typeof weather !== undefined ? weather : new Weather()
+  this.capacity = capacity;
+  this.weather = typeof weather !== undefined ? weather : new Weather();
 };
 
 Airport.prototype = {
@@ -9,7 +10,11 @@ Airport.prototype = {
     if(this.weather.isStormy() == 'Bad Weather can not land.'){
       throw ('Can not land Plane')
     }
-    
+
+    if(this.planeLandingArea.length > this.capacity){
+      throw ('Airport capacity is full.')
+    }
+
     this.planeLandingArea.push(plane)
     return('Plane landed succesfully.');
   },

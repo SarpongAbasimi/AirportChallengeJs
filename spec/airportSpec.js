@@ -4,7 +4,7 @@ describe('Airport', function(){
   var airport, plane, weather;
   beforeEach(function(){
     weather = jasmine.createSpyObj('weather', ['isStormy']);
-    airport = new Airport(weather);
+    airport = new Airport(weather,capacity = 10);
 
     plane = jasmine.createSpy('plane');
     planeTwo = jasmine.createSpy('planeTwo');
@@ -29,6 +29,13 @@ describe('Airport', function(){
     it('should stop the plane from landing when weather is stormy', function(){
       weather.isStormy.and.returnValue('Bad Weather can not land.')
       expect(function(){expect(airport.landPlane(plane))}).toThrow('Can not land Plane')
+    });
+
+    it('returns an error when the plane capacity is full', function(){
+      for(let i = 0; i <= 11; i++){
+        airport.planeLandingArea.push(plane);
+      }
+      expect(function(){airport.landPlane()}).toThrow('Airport capacity is full.')
     });
   });
 
