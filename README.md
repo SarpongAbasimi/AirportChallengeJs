@@ -32,13 +32,13 @@ User stories.
 
 <h4 align='center'>
   Reflections.
-<h4>
+</h4>
 
 - I learnt how to test dirve in JavaScript using Jasmine.
 - I learnt how to use spy (test doubles) in Jasmine.
 - I learnt how to learn.
 - I leanrt to right feature test to match my unit test.
-- Need to refactoe my codebase and finish the challenge.
+- Need to refactor my codebase and finish the challenge.
 
 <h4 align='center'>
 Technologies Used For Aplication.
