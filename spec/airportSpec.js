@@ -1,9 +1,10 @@
 var Airport = require('../src/airport');
 
 describe('Airport', function(){
-  var airport, plane;
+  var airport, plane, weather;
   beforeEach(function(){
-    airport = new Airport()
+    weather = jasmine.createSpyObj('weather', ['isStormy']);
+    airport = new Airport(weather);
 
     plane = jasmine.createSpy('plane');
     planeTwo = jasmine.createSpy('planeTwo');
@@ -28,6 +29,9 @@ describe('Airport', function(){
 
   describe('TakeOff', function(){
     it('should allow plane to take off', function(){
+      weather.isStormy.and.returnValue('You can land anytime because the weather is great.');
+      weather.isStormy.and.returnValue('You can land anytime because the weather is great.');
+      weather.isStormy.and.returnValue('You can land anytime because the weather is great.');
       airport.takeOff(plane);
       airport.takeOff(planeTwo);
       airport.takeOff(planeThree);
@@ -38,7 +42,13 @@ describe('Airport', function(){
     });
 
     it('should return a message', function(){
+      weather.isStormy.and.returnValue('You can land anytime because the weather is great.');
       expect(airport.takeOff(plane)).toEqual('Plane has successfully taken off.');
+    });
+
+    it('should return an error when the weather is storemy',function(){
+      weather.isStormy.and.returnValue('Bad Weather can not land.')
+      expect(function(){ airport.takeOff(plane)}).toThrow('can not take off');
     });
   });
 
