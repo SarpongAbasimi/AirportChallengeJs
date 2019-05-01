@@ -6,12 +6,12 @@ Airport.prototype = {
   constructor: Airport,
   landPlane: function(plane){
     this.planeLandingArea.push(plane)
-    return('Plane landed succesfully');
+    return('Plane landed succesfully.');
   },
   takeOff: function(plane){
     let planeIndex = this.planeLandingArea.indexOf(plane)
     this.planeLandingArea.splice(planeIndex,1);
-    return('Plane has successfully taken off');
+    return('Plane has successfully taken off.');
   }
 }
 

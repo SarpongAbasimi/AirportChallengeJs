@@ -15,10 +15,17 @@ describe('Weather',function(){
   });
 
   describe('isStormy', function(){
-    it('gives a message if its stormy', function(){
+    it('gives a message if it is not stormy', function(){
       let goodMessage = 'You can land anytime because the weather is great.'
       spyOn(Math,'random').and.returnValue(0.4);
       expect(weather.isStormy()).toBe(goodMessage);
     });
+
+    it('gives a message if it is stormy', function(){
+        let badMessage = 'Bad Weather can not land.'
+        spyOn(Math,'random').and.returnValue(0.6);
+        expect(weather.isStormy()).toBe(badMessage);
+      });
   });
+
 });

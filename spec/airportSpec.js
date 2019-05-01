@@ -22,7 +22,7 @@ describe('Airport', function(){
     });
 
     it('should return a message when plane lands', function(){
-      expect(airport.landPlane(plane)).toEqual('Plane landed succesfully');
+      expect(airport.landPlane(plane)).toEqual('Plane landed succesfully.');
     });
   });
 
@@ -38,7 +38,7 @@ describe('Airport', function(){
     });
 
     it('should return a message', function(){
-      expect(airport.takeOff(plane)).toEqual('Plane has successfully taken off');
+      expect(airport.takeOff(plane)).toEqual('Plane has successfully taken off.');
     });
   });
 
