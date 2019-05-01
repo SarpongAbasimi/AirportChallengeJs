@@ -12,11 +12,13 @@ describe('FeaturTest', function(){
 
   describe('Land plane', function(){
     it('should be able to land plane', function(){
+      spyOn(Math,'random').and.returnValue(0.4);
       airport.landPlane(plane);
       expect(airport.planeLandingArea).toContain(plane);
     });
 
     it('should return a message when the plane lands', function(){
+      spyOn(Math,'random').and.returnValue(0.4);
       expect(airport.landPlane()).toBe('Plane landed succesfully.');
     });
   });

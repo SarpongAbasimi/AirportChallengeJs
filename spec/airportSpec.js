@@ -25,6 +25,11 @@ describe('Airport', function(){
     it('should return a message when plane lands', function(){
       expect(airport.landPlane(plane)).toEqual('Plane landed succesfully.');
     });
+
+    it('should stop the plane from landing when weather is stormy', function(){
+      weather.isStormy.and.returnValue('Bad Weather can not land.')
+      expect(function(){expect(airport.landPlane(plane))}).toThrow('Can not land Plane')
+    });
   });
 
   describe('TakeOff', function(){
@@ -48,7 +53,7 @@ describe('Airport', function(){
 
     it('should return an error when the weather is storemy',function(){
       weather.isStormy.and.returnValue('Bad Weather can not land.')
-      expect(function(){ airport.takeOff(plane)}).toThrow('can not take off');
+      expect(function(){ airport.takeOff(plane)}).toThrow('Can not take off');
     });
   });
 

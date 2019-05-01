@@ -6,12 +6,16 @@ function Airport(weather){
 Airport.prototype = {
   constructor: Airport,
   landPlane: function(plane){
+    if(this.weather.isStormy() == 'Bad Weather can not land.'){
+      throw ('Can not land Plane')
+    }
+    
     this.planeLandingArea.push(plane)
     return('Plane landed succesfully.');
   },
   takeOff: function(plane){
     if(this.weather.isStormy() == 'Bad Weather can not land.'){
-      throw ('can not take off')
+      throw ('Can not take off')
     }
     let planeIndex = this.planeLandingArea.indexOf(plane)
     this.planeLandingArea.splice(planeIndex,1);
